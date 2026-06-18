@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///Users/dzhong/Downloads/crossed-signals.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crossed Signals</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f8f8f6;color:#1a1a1a;padding:1.5rem 1rem 3rem;}
+h1{font-size:22px;font-weight:500;margin-bottom:1.5rem;color:#1a1a1a}
+.puzzle-wrap{display:flex;flex-direction:column;gap:1.25rem;user-select:none;max-width:900px;margin:0 auto}
+.side-header{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:10px}
+.buckets-row{display:flex;gap:8px;align-items:flex-start}
+.bucket-wrap{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0}
+.bucket-num{font-size:13px;font-weight:500;color:#1a1a1a;text-align:center;padding-bottom:6px;line-height:1}
+.bucket-rim{width:100%;height:12px;background:#efefed;border:1.5px solid #ccc;border-bottom:none;border-radius:6px 6px 0 0;transition:background .15s,border-color .15s}
+.bucket-body{width:100%;min-height:80px;background:#efefed;border:1.5px solid #ccc;border-top:none;border-radius:0 0 14px 14px;padding:6px 4px 10px;display:flex;flex-direction:column;gap:4px;align-items:center;transition:background .15s,border-color .15s}
+.bucket-body.over{background:#ddeeff;border-color:#378ADD}
+.bucket-rim.over-rim{background:#ddeeff;border-color:#378ADD}
+.bucket-label-below{font-size:9.5px;font-weight:400;color:#666;text-align:center;margin-top:6px;line-height:1.3;padding:0 2px}
+.tray{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;background:#efefed;border-radius:10px;border:1px solid #ddd;min-height:52px;align-items:center}
+.bead{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:38px;height:44px;border-radius:10px;font-size:9.5px;font-weight:500;cursor:grab;border:2px solid transparent;transition:opacity .15s,transform .1s;flex-shrink:0;text-align:center;line-height:1.2;padding:4px 6px 3px;white-space:nowrap}
+.bead:active{cursor:grabbing;transform:scale(1.08)}
+.bead-code{font-size:9px;opacity:.65;margin-top:2px;font-weight:400}
+.divider{height:1px;background:#ddd}
+.btn-row{display:flex;gap:8px}
+button{font-size:13px;padding:6px 14px;border-radius:8px;border:1px solid #bbb;background:#fff;color:#1a1a1a;cursor:pointer}
+button:hover{background:#f0f0ee}
+.check-btn{background:#ddeeff;color:#0C447C;border-color:#85B7EB}
+.check-btn:hover{background:#cce0f5}
+.feedback{font-size:14px;font-weight:500}
+.correct{color:#2a7a2a}
+.wrong{color:#c0392b}
+</style>
+</head>
+<body>
+<div class="puzzle-wrap">
+
+  <div>
+    <div class="side-header">Side 1</div>
+    <div class="buckets-row" id="top-buckets"><div class="bucket-wrap"><div class="bucket-num">1</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst1"></div><div class="bucket-label-below">Adjunctive for TB meningitis</div></div><div class="bucket-wrap"><div class="bucket-num">2</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst2"></div><div class="bucket-label-below">Toxoplasmosis treatment</div></div><div class="bucket-wrap"><div class="bucket-num">3</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst3"></div><div class="bucket-label-below">Maintenance for cryptococcal meningitis</div></div><div class="bucket-wrap"><div class="bucket-num">4</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst4"></div><div class="bucket-label-below">Poor CNS penetration for Staph</div></div><div class="bucket-wrap"><div class="bucket-num">5</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst5"></div><div class="bucket-label-below">Poor CNS penetration for Candida</div></div><div class="bucket-wrap"><div class="bucket-num">6</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst6"></div><div class="bucket-label-below">High P-gp substrate activity</div></div><div class="bucket-wrap"><div class="bucket-num">7</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst7"></div><div class="bucket-label-below">Inactivates at low pH</div></div></div>
+  </div>
+  <div class="tray" id="top-tray"><div class="bead" draggable="true" data-ci="5" data-label="low ionization" title="low ionization" style="background: rgb(230, 241, 251); border-color: rgb(55, 138, 221); color: rgb(12, 68, 124);"><span>low ionization</span><span class="bead-code">J</span></div><div class="bead" draggable="true" data-ci="7" data-label="hydrophilicity" title="hydrophilicity" style="background: rgb(252, 240, 224); border-color: rgb(196, 136, 26); color: rgb(90, 58, 4);"><span>hydrophilicity</span><span class="bead-code">K</span></div><div class="bead" draggable="true" data-ci="8" data-label="high protein binding" title="high protein binding" style="background: rgb(240, 235, 249); border-color: rgb(155, 111, 212); color: rgb(74, 36, 128);"><span>high protein binding</span><span class="bead-code">X</span></div><div class="bead" draggable="true" data-ci="0" data-label="lipophilicity" title="lipophilicity" style="background: rgb(238, 237, 254); border-color: rgb(127, 119, 221); color: rgb(60, 52, 137);"><span>lipophilicity</span><span class="bead-code">Y</span></div><div class="bead" draggable="true" data-ci="2" data-label="low molecular weight" title="low molecular weight" style="background: rgb(250, 236, 231); border-color: rgb(216, 90, 48); color: rgb(113, 43, 19);"><span>low molecular weight</span><span class="bead-code">E</span></div><div class="bead" draggable="true" data-ci="4" data-label="slightly acidic" title="slightly acidic" style="background: rgb(251, 234, 240); border-color: rgb(212, 83, 126); color: rgb(114, 36, 62);"><span>slightly acidic</span><span class="bead-code">S</span></div><div class="bead" draggable="true" data-ci="1" data-label="low protein binding" title="low protein binding" style="background: rgb(250, 238, 218); border-color: rgb(239, 159, 39); color: rgb(99, 56, 6);"><span>low protein binding</span><span class="bead-code">F</span></div><div class="bead" draggable="true" data-ci="12" data-label="high ionization" title="high ionization" style="background: rgb(232, 240, 224); border-color: rgb(112, 160, 64); color: rgb(42, 80, 16);"><span>high ionization</span><span class="bead-code">Q</span></div><div class="bead" draggable="true" data-ci="10" data-label="intermittent dosing" title="intermittent dosing" style="background: rgb(255, 240, 224); border-color: rgb(224, 120, 32); color: rgb(107, 51, 0);"><span>intermittent dosing</span><span class="bead-code">U</span></div><div class="bead" draggable="true" data-ci="9" data-label="high molecular weight" title="high molecular weight" style="background: rgb(224, 244, 248); border-color: rgb(42, 171, 204); color: rgb(10, 90, 112);"><span>high molecular weight</span><span class="bead-code">M</span></div><div class="bead" draggable="true" data-ci="3" data-label="continuous dosing" title="continuous dosing" style="background: rgb(225, 245, 238); border-color: rgb(29, 158, 117); color: rgb(8, 80, 65);"><span>continuous dosing</span><span class="bead-code">H</span></div><div class="bead" draggable="true" data-ci="13" data-label="substrate for P-gp" title="substrate for P-gp" style="background: rgb(240, 232, 245); border-color: rgb(160, 96, 192); color: rgb(80, 32, 112);"><span>substrate for P-gp</span><span class="bead-code">B</span></div><div class="bead" draggable="true" data-ci="11" data-label="slightly basic" title="slightly basic" style="background: rgb(245, 237, 232); border-color: rgb(176, 112, 96); color: rgb(90, 40, 16);"><span>slightly basic</span><span class="bead-code">W</span></div><div class="bead" draggable="true" data-ci="6" data-label="not a substrate for P-gp" title="not a substrate for P-gp" style="background: rgb(234, 243, 222); border-color: rgb(99, 153, 34); color: rgb(39, 80, 10);"><span>not a substrate for P-gp</span><span class="bead-code">D</span></div></div>
+
+  <div class="divider"></div>
+
+  <div>
+    <div class="side-header">Side 2</div>
+    <div class="buckets-row" id="bot-buckets"><div class="bucket-wrap"><div class="bucket-num">1</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb1"></div><div class="bucket-label-below">Improves CSF Vd</div></div><div class="bucket-wrap"><div class="bucket-num">2</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb2"></div><div class="bucket-label-below">Desired protein binding in CSF</div></div><div class="bucket-wrap"><div class="bucket-num">3</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb3"></div><div class="bucket-label-below">Desired molecular weight in CSF</div></div><div class="bucket-wrap"><div class="bucket-num">4</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb4"></div><div class="bucket-label-below">Improves beta-lactam efficacy (T&gt;MIC)</div></div><div class="bucket-wrap"><div class="bucket-num">5</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb5"></div><div class="bucket-label-below">CSF pH in bacterial meningitis</div></div><div class="bucket-wrap"><div class="bucket-num">6</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb6"></div><div class="bucket-label-below">Desired ionization at CSF pH</div></div><div class="bucket-wrap"><div class="bucket-num">7</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb7"></div><div class="bucket-label-below">Desired P-gp substrate status</div></div></div>
+  </div>
+  <div class="tray" id="bot-tray"><div class="bead" draggable="true" data-ci="3" data-label="vancomycin" title="vancomycin" style="background: rgb(225, 245, 238); border-color: rgb(29, 158, 117); color: rgb(8, 80, 65);"><span>vancomycin</span><span class="bead-code">N</span></div><div class="bead" draggable="true" data-ci="7" data-label="flucytosine" title="flucytosine" style="background: rgb(252, 240, 224); border-color: rgb(196, 136, 26); color: rgb(90, 58, 4);"><span>flucytosine</span><span class="bead-code">C</span></div><div class="bead" draggable="true" data-ci="0" data-label="moxifloxacin" title="moxifloxacin" style="background: rgb(238, 237, 254); border-color: rgb(127, 119, 221); color: rgb(60, 52, 137);"><span>moxifloxacin</span><span class="bead-code">B</span></div><div class="bead" draggable="true" data-ci="5" data-label="itraconazole" title="itraconazole" style="background: rgb(230, 241, 251); border-color: rgb(55, 138, 221); color: rgb(12, 68, 124);"><span>itraconazole</span><span class="bead-code">K</span></div><div class="bead" draggable="true" data-ci="2" data-label="fluconazole" title="fluconazole" style="background: rgb(250, 236, 231); border-color: rgb(216, 90, 48); color: rgb(113, 43, 19);"><span>fluconazole</span><span class="bead-code">L</span></div><div class="bead" draggable="true" data-ci="9" data-label="linezolid" title="linezolid" style="background: rgb(224, 244, 248); border-color: rgb(42, 171, 204); color: rgb(10, 90, 112);"><span>linezolid</span><span class="bead-code">J</span></div><div class="bead" draggable="true" data-ci="13" data-label="ceftriaxone" title="ceftriaxone" style="background: rgb(240, 232, 245); border-color: rgb(160, 96, 192); color: rgb(80, 32, 112);"><span>ceftriaxone</span><span class="bead-code">D</span></div><div class="bead" draggable="true" data-ci="8" data-label="TMP/SMX" title="TMP/SMX" style="background: rgb(240, 235, 249); border-color: rgb(155, 111, 212); color: rgb(74, 36, 128);"><span>TMP/SMX</span><span class="bead-code">V</span></div><div class="bead" draggable="true" data-ci="12" data-label="voriconazole" title="voriconazole" style="background: rgb(232, 240, 224); border-color: rgb(112, 160, 64); color: rgb(42, 80, 16);"><span>voriconazole</span><span class="bead-code">U</span></div><div class="bead" draggable="true" data-ci="11" data-label="liposomal ampho B" title="liposomal ampho B" style="background: rgb(245, 237, 232); border-color: rgb(176, 112, 96); color: rgb(90, 40, 16);"><span>liposomal ampho B</span><span class="bead-code">P</span></div><div class="bead" draggable="true" data-ci="10" data-label="metronidazole" title="metronidazole" style="background: rgb(255, 240, 224); border-color: rgb(224, 120, 32); color: rgb(107, 51, 0);"><span>metronidazole</span><span class="bead-code">S</span></div><div class="bead" draggable="true" data-ci="4" data-label="micafungin" title="micafungin" style="background: rgb(251, 234, 240); border-color: rgb(212, 83, 126); color: rgb(114, 36, 62);"><span>micafungin</span><span class="bead-code">F</span></div><div class="bead" draggable="true" data-ci="6" data-label="amikacin" title="amikacin" style="background: rgb(234, 243, 222); border-color: rgb(99, 153, 34); color: rgb(39, 80, 10);"><span>amikacin</span><span class="bead-code">G</span></div><div class="bead" draggable="true" data-ci="1" data-label="pyrimethamine" title="pyrimethamine" style="background: rgb(250, 238, 218); border-color: rgb(239, 159, 39); color: rgb(99, 56, 6);"><span>pyrimethamine</span><span class="bead-code">Y</span></div></div>
+
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkAnswers()">Check answers</button>
+    <button onclick="resetPuzzle()">Reset</button>
+  </div>
+  <div class="feedback" id="feedback"></div>
+</div>
+
+<script>
+const COLORS=[
+  {bg:'#EEEDFE',border:'#7F77DD',text:'#3C3489'},
+  {bg:'#FAEEDA',border:'#EF9F27',text:'#633806'},
+  {bg:'#FAECE7',border:'#D85A30',text:'#712B13'},
+  {bg:'#E1F5EE',border:'#1D9E75',text:'#085041'},
+  {bg:'#FBEAF0',border:'#D4537E',text:'#72243E'},
+  {bg:'#E6F1FB',border:'#378ADD',text:'#0C447C'},
+  {bg:'#EAF3DE',border:'#639922',text:'#27500A'},
+  {bg:'#FCF0E0',border:'#C4881A',text:'#5A3A04'},
+  {bg:'#F0EBF9',border:'#9B6FD4',text:'#4A2480'},
+  {bg:'#E0F4F8',border:'#2AABCC',text:'#0A5A70'},
+  {bg:'#FFF0E0',border:'#E07820',text:'#6B3300'},
+  {bg:'#F5EDE8',border:'#B07060',text:'#5A2810'},
+  {bg:'#E8F0E0',border:'#70A040',text:'#2A5010'},
+  {bg:'#F0E8F5',border:'#A060C0',text:'#502070'},
+];
+
+const RAW=[
+  {ci:0,drug:'moxifloxacin',pk:'lipophilicity'},
+  {ci:1,drug:'pyrimethamine',pk:'low protein binding'},
+  {ci:2,drug:'fluconazole',pk:'low molecular weight'},
+  {ci:3,drug:'vancomycin',pk:'continuous dosing'},
+  {ci:4,drug:'micafungin',pk:'slightly acidic'},
+  {ci:5,drug:'itraconazole',pk:'low ionization'},
+  {ci:6,drug:'amikacin',pk:'not a substrate for P-gp'},
+  {ci:7,drug:'flucytosine',pk:'hydrophilicity'},
+  {ci:8,drug:'TMP/SMX',pk:'high protein binding'},
+  {ci:9,drug:'linezolid',pk:'high molecular weight'},
+  {ci:10,drug:'metronidazole',pk:'intermittent dosing'},
+  {ci:11,drug:'liposomal ampho B',pk:'slightly basic'},
+  {ci:12,drug:'voriconazole',pk:'high ionization'},
+  {ci:13,drug:'ceftriaxone',pk:'substrate for P-gp'},
+];
+
+const TOP_BUCKETS=[
+  {id:'t1',num:1,label:'Adjunctive for TB meningitis',answers:[0]},
+  {id:'t2',num:2,label:'Toxoplasmosis treatment',answers:[1]},
+  {id:'t3',num:3,label:'Maintenance for cryptococcal meningitis',answers:[2]},
+  {id:'t4',num:4,label:'Poor CNS penetration for Staph',answers:[3]},
+  {id:'t5',num:5,label:'Poor CNS penetration for Candida',answers:[4]},
+  {id:'t6',num:6,label:'High P-gp substrate activity',answers:[5]},
+  {id:'t7',num:7,label:'Inactivates at low pH',answers:[6]},
+];
+
+const BOT_BUCKETS=[
+  {id:'b1',num:1,label:'Improves CSF Vd',answers:[0]},
+  {id:'b2',num:2,label:'Desired protein binding in CSF',answers:[1]},
+  {id:'b3',num:3,label:'Desired molecular weight in CSF',answers:[2]},
+  {id:'b4',num:4,label:'Improves beta-lactam efficacy (T>MIC)',answers:[3]},
+  {id:'b5',num:5,label:'CSF pH in bacterial meningitis',answers:[4]},
+  {id:'b6',num:6,label:'Desired ionization at CSF pH',answers:[5]},
+  {id:'b7',num:7,label:'Desired P-gp substrate status',answers:[6]},
+];
+
+const LETTERS='ABCDEFGHJKLMNPQRSTUVWXYZ';
+let CODED=[];
+function generateCodes(){
+  function pickLetters(n){
+    const pool=[...LETTERS];const out=[];
+    while(out.length<n){const i=Math.floor(Math.random()*pool.length);out.push(pool.splice(i,1)[0]);}
+    return out;
+  }
+  const dL=pickLetters(14),pL=pickLetters(14);
+  CODED=RAW.map((b,i)=>({ci:b.ci,drug:b.drug,pk:b.pk,drugCode:dL[i],pkCode:pL[i]}));
+}
+
+function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function makeBead(ci,label,code){
+  const c=COLORS[ci];
+  const el=document.createElement('div');
+  el.className='bead';
+  el.style.background=c.bg;el.style.borderColor=c.border;el.style.color=c.text;
+  el.draggable=true;el.dataset.ci=ci;el.dataset.label=label;el.title=label;
+  const n=document.createElement('span');n.textContent=label;
+  const cd=document.createElement('span');cd.className='bead-code';cd.textContent=code;
+  el.appendChild(n);el.appendChild(cd);
+  el.addEventListener('dragstart',e=>{
+    e.dataTransfer.setData('ci',String(ci));
+    e.dataTransfer.setData('label',label);
+    e.dataTransfer.setData('code',code);
+    e.dataTransfer.setData('srcId',el.parentElement.id);
+    setTimeout(()=>el.style.opacity='.3',0);
+  });
+  el.addEventListener('dragend',()=>el.style.opacity='1');
+  return el;
+}
+
+function setupDrop(el,rim,onDrop){
+  el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('over');if(rim)rim.classList.add('over-rim');});
+  el.addEventListener('dragleave',e=>{if(!el.contains(e.relatedTarget)){el.classList.remove('over');if(rim)rim.classList.remove('over-rim');}});
+  el.addEventListener('drop',e=>{
+    e.preventDefault();el.classList.remove('over');if(rim)rim.classList.remove('over-rim');
+    const ci=parseInt(e.dataTransfer.getData('ci'));
+    const label=e.dataTransfer.getData('label');
+    const code=e.dataTransfer.getData('code');
+    const srcId=e.dataTransfer.getData('srcId');
+    if(srcId===el.id)return;
+    const src=document.getElementById(srcId);
+    if(src){const ex=[...src.querySelectorAll('.bead')].find(b=>parseInt(b.dataset.ci)===ci&&b.dataset.label===label);if(ex)ex.remove();}
+    onDrop(ci,label,code,el);
+    document.getElementById('feedback').textContent='';
+  });
+}
+
+function makeBucketEl(b,prefix){
+  const wrap=document.createElement('div');wrap.className='bucket-wrap';
+  const numEl=document.createElement('div');numEl.className='bucket-num';numEl.textContent=b.num;
+  const rim=document.createElement('div');rim.className='bucket-rim';
+  const body=document.createElement('div');body.className='bucket-body';body.id=prefix+b.id;
+  setupDrop(body,rim,(ci,label,code,el)=>el.appendChild(makeBead(ci,label,code)));
+  const lbl=document.createElement('div');lbl.className='bucket-label-below';lbl.textContent=b.label;
+  wrap.appendChild(numEl);wrap.appendChild(rim);wrap.appendChild(body);wrap.appendChild(lbl);
+  return wrap;
+}
+
+function buildTop(){
+  const bc=document.getElementById('top-buckets');bc.innerHTML='';
+  TOP_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'top-buckets')));
+  const tray=document.getElementById('top-tray');tray.innerHTML='';
+  setupDrop(tray,null,(ci,label,code,el)=>el.appendChild(makeBead(ci,label,code)));
+  shuffle(CODED.map(b=>({ci:b.ci,label:b.pk,code:b.pkCode}))).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code)));
+}
+
+function buildBot(){
+  const bc=document.getElementById('bot-buckets');bc.innerHTML='';
+  BOT_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'bot-buckets')));
+  const tray=document.getElementById('bot-tray');tray.innerHTML='';
+  setupDrop(tray,null,(ci,label,code,el)=>el.appendChild(makeBead(ci,label,code)));
+  shuffle(CODED.map(b=>({ci:b.ci,label:b.drug,code:b.drugCode}))).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code)));
+}
+
+function checkAnswers(){
+  let allCorrect=true;
+  function checkSide(buckets,prefix){
+    buckets.forEach(b=>{
+      const el=document.getElementById(prefix+b.id);
+      const placed=[...el.querySelectorAll('.bead')].map(x=>parseInt(x.dataset.ci));
+      if(b.answers.some(ci=>!placed.includes(ci))) allCorrect=false;
+      placed.forEach(ci=>{if(!b.answers.includes(ci)) allCorrect=false;});
+    });
+  }
+  checkSide(TOP_BUCKETS,'top-buckets');
+  checkSide(BOT_BUCKETS,'bot-buckets');
+  const fb=document.getElementById('feedback');
+  fb.innerHTML=allCorrect
+    ?'<span class="correct">Correct!</span>'
+    :'<span class="wrong">Try again!</span>';
+}
+
+function resetPuzzle(){
+  generateCodes();buildTop();buildBot();
+  document.getElementById('feedback').textContent='';
+}
+
+generateCodes();buildTop();buildBot();
+</script>
+
+
+</body></html>
