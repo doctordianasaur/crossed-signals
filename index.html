@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)file:///Users/dzhong/Downloads/crossed-signals_1.html -->
+<!-- saved from url=(0053)file:///Users/dzhong/Downloads/crossed-signals_5.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,6 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:#f8f8f6;color:#1a1a1a;padding:1.5rem 1rem 3rem;}
-h1{font-size:22px;font-weight:500;margin-bottom:1.5rem;color:#1a1a1a}
 .puzzle-wrap{display:flex;flex-direction:column;gap:1.25rem;user-select:none;max-width:900px;margin:0 auto}
 .side-header{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:10px}
 .buckets-row{display:flex;gap:8px;align-items:flex-start}
@@ -35,95 +34,134 @@ button:hover{background:#f0f0ee}
 </head>
 <body>
 <div class="puzzle-wrap">
-
   <div>
     <div class="side-header">Side 1</div>
-    <div class="buckets-row" id="top-buckets"><div class="bucket-wrap"><div class="bucket-num">1</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst1"></div><div class="bucket-label-below">Adjunctive for TB meningitis</div></div><div class="bucket-wrap"><div class="bucket-num">2</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst2"></div><div class="bucket-label-below">Toxoplasmosis treatment</div></div><div class="bucket-wrap"><div class="bucket-num">3</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst3"></div><div class="bucket-label-below">Maintenance for cryptococcal meningitis</div></div><div class="bucket-wrap"><div class="bucket-num">4</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst4"></div><div class="bucket-label-below">Poor CNS penetration for Staph</div></div><div class="bucket-wrap"><div class="bucket-num">5</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst5"></div><div class="bucket-label-below">Poor CNS penetration for Candida</div></div><div class="bucket-wrap"><div class="bucket-num">6</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst6"></div><div class="bucket-label-below">High P-gp substrate activity</div></div><div class="bucket-wrap"><div class="bucket-num">7</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst7"></div><div class="bucket-label-below">Inactivates at low pH</div></div></div>
+    <div class="buckets-row" id="top-buckets"><div class="bucket-wrap"><div class="bucket-num">1</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst1"><div class="bead" draggable="true" data-ci="0" data-label="lipophilicity" title="lipophilicity" style="background: rgb(238, 237, 254); border-color: rgb(127, 119, 221); color: rgb(60, 52, 137);"><span>lipophilicity</span><span class="bead-code">K</span></div></div><div class="bucket-label-below">Adjunctive for TB meningitis</div></div><div class="bucket-wrap"><div class="bucket-num">2</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst2"><div class="bead" draggable="true" data-ci="1" data-label="low protein binding" title="low protein binding" style="background: rgb(250, 238, 218); border-color: rgb(239, 159, 39); color: rgb(99, 56, 6);"><span>low protein binding</span><span class="bead-code">R</span></div></div><div class="bucket-label-below">Toxoplasmosis treatment</div></div><div class="bucket-wrap"><div class="bucket-num">3</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst3"><div class="bead" draggable="true" data-ci="3" data-label="continuous dosing" title="continuous dosing" style="background: rgb(225, 245, 238); border-color: rgb(29, 158, 117); color: rgb(8, 80, 65);"><span>continuous dosing</span><span class="bead-code">N</span></div></div><div class="bucket-label-below">Poor CNS penetration for Staph</div></div><div class="bucket-wrap"><div class="bucket-num">4</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst4"><div class="bead" draggable="true" data-ci="4" data-label="not a substrate for P-gp" title="not a substrate for P-gp" style="background: rgb(251, 234, 240); border-color: rgb(212, 83, 126); color: rgb(114, 36, 62);"><span>not a substrate for P-gp</span><span class="bead-code">T</span></div></div><div class="bucket-label-below">Poor CNS penetration for Candida</div></div><div class="bucket-wrap"><div class="bucket-num">5</div><div class="bucket-rim"></div><div class="bucket-body" id="top-bucketst5"><div class="bead" draggable="true" data-ci="5" data-label="low ionization" title="low ionization" style="background: rgb(230, 241, 251); border-color: rgb(55, 138, 221); color: rgb(12, 68, 124);"><span>low ionization</span><span class="bead-code">B</span></div></div><div class="bucket-label-below">High P-gp substrate activity</div></div></div>
   </div>
-  <div class="tray" id="top-tray"><div class="bead" draggable="true" data-ci="11" data-label="slightly basic" title="slightly basic" style="background: rgb(245, 237, 232); border-color: rgb(176, 112, 96); color: rgb(90, 40, 16);"><span>slightly basic</span><span class="bead-code">V</span></div><div class="bead" draggable="true" data-ci="1" data-label="low protein binding" title="low protein binding" style="background: rgb(250, 238, 218); border-color: rgb(239, 159, 39); color: rgb(99, 56, 6);"><span>low protein binding</span><span class="bead-code">R</span></div><div class="bead" draggable="true" data-ci="6" data-label="not a substrate for P-gp" title="not a substrate for P-gp" style="background: rgb(234, 243, 222); border-color: rgb(99, 153, 34); color: rgb(39, 80, 10);"><span>not a substrate for P-gp</span><span class="bead-code">M</span></div><div class="bead" draggable="true" data-ci="8" data-label="high protein binding" title="high protein binding" style="background: rgb(240, 235, 249); border-color: rgb(155, 111, 212); color: rgb(74, 36, 128);"><span>high protein binding</span><span class="bead-code">H</span></div><div class="bead" draggable="true" data-ci="10" data-label="intermittent dosing" title="intermittent dosing" style="background: rgb(255, 240, 224); border-color: rgb(224, 120, 32); color: rgb(107, 51, 0);"><span>intermittent dosing</span><span class="bead-code">X</span></div><div class="bead" draggable="true" data-ci="2" data-label="low molecular weight" title="low molecular weight" style="background: rgb(250, 236, 231); border-color: rgb(216, 90, 48); color: rgb(113, 43, 19);"><span>low molecular weight</span><span class="bead-code">F</span></div><div class="bead" draggable="true" data-ci="12" data-label="high ionization" title="high ionization" style="background: rgb(232, 240, 224); border-color: rgb(112, 160, 64); color: rgb(42, 80, 16);"><span>high ionization</span><span class="bead-code">L</span></div><div class="bead" draggable="true" data-ci="5" data-label="low ionization" title="low ionization" style="background: rgb(230, 241, 251); border-color: rgb(55, 138, 221); color: rgb(12, 68, 124);"><span>low ionization</span><span class="bead-code">B</span></div><div class="bead" draggable="true" data-ci="4" data-label="slightly acidic" title="slightly acidic" style="background: rgb(251, 234, 240); border-color: rgb(212, 83, 126); color: rgb(114, 36, 62);"><span>slightly acidic</span><span class="bead-code">T</span></div><div class="bead" draggable="true" data-ci="0" data-label="lipophilicity" title="lipophilicity" style="background: rgb(238, 237, 254); border-color: rgb(127, 119, 221); color: rgb(60, 52, 137);"><span>lipophilicity</span><span class="bead-code">K</span></div><div class="bead" draggable="true" data-ci="3" data-label="continuous dosing" title="continuous dosing" style="background: rgb(225, 245, 238); border-color: rgb(29, 158, 117); color: rgb(8, 80, 65);"><span>continuous dosing</span><span class="bead-code">N</span></div><div class="bead" draggable="true" data-ci="7" data-label="hydrophilicity" title="hydrophilicity" style="background: rgb(252, 240, 224); border-color: rgb(196, 136, 26); color: rgb(90, 58, 4);"><span>hydrophilicity</span><span class="bead-code">Q</span></div><div class="bead" draggable="true" data-ci="13" data-label="substrate for P-gp" title="substrate for P-gp" style="background: rgb(240, 232, 245); border-color: rgb(160, 96, 192); color: rgb(80, 32, 112);"><span>substrate for P-gp</span><span class="bead-code">P</span></div><div class="bead" draggable="true" data-ci="9" data-label="high molecular weight" title="high molecular weight" style="background: rgb(224, 244, 248); border-color: rgb(42, 171, 204); color: rgb(10, 90, 112);"><span>high molecular weight</span><span class="bead-code">J</span></div></div>
-
+  <div class="tray" id="top-tray"><div class="bead" draggable="true" data-ci="12" data-label="high ionization" title="high ionization" style="background: rgb(232, 240, 224); border-color: rgb(112, 160, 64); color: rgb(42, 80, 16);"><span>high ionization</span><span class="bead-code">L</span></div><div class="bead" draggable="true" data-ci="11" data-label="substrate for P-gp" title="substrate for P-gp" style="background: rgb(245, 237, 232); border-color: rgb(176, 112, 96); color: rgb(90, 40, 16);"><span>substrate for P-gp</span><span class="bead-code">V</span></div><div class="bead" draggable="true" data-ci="10" data-label="intermittent dosing" title="intermittent dosing" style="background: rgb(255, 240, 224); border-color: rgb(224, 120, 32); color: rgb(107, 51, 0);"><span>intermittent dosing</span><span class="bead-code">X</span></div><div class="bead" draggable="true" data-ci="8" data-label="high protein binding" title="high protein binding" style="background: rgb(240, 235, 249); border-color: rgb(155, 111, 212); color: rgb(74, 36, 128);"><span>high protein binding</span><span class="bead-code">H</span></div><div class="bead" draggable="true" data-ci="7" data-label="hydrophilicity" title="hydrophilicity" style="background: rgb(252, 240, 224); border-color: rgb(196, 136, 26); color: rgb(90, 58, 4);"><span>hydrophilicity</span><span class="bead-code">Q</span></div></div>
   <div class="divider"></div>
-
   <div>
     <div class="side-header">Side 2</div>
-    <div class="buckets-row" id="bot-buckets"><div class="bucket-wrap"><div class="bucket-num">1</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb1"></div><div class="bucket-label-below">Improves CSF Vd</div></div><div class="bucket-wrap"><div class="bucket-num">2</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb2"></div><div class="bucket-label-below">Desired protein binding in CSF</div></div><div class="bucket-wrap"><div class="bucket-num">3</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb3"></div><div class="bucket-label-below">Desired molecular weight in CSF</div></div><div class="bucket-wrap"><div class="bucket-num">4</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb4"></div><div class="bucket-label-below">Improves beta-lactam efficacy (T&gt;MIC)</div></div><div class="bucket-wrap"><div class="bucket-num">5</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb5"></div><div class="bucket-label-below">CSF pH in bacterial meningitis</div></div><div class="bucket-wrap"><div class="bucket-num">6</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb6"></div><div class="bucket-label-below">Desired ionization at CSF pH</div></div><div class="bucket-wrap"><div class="bucket-num">7</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb7"></div><div class="bucket-label-below">Desired P-gp substrate status</div></div></div>
+    <div class="buckets-row" id="bot-buckets"><div class="bucket-wrap"><div class="bucket-num">1</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb1"><div class="bead" draggable="true" data-ci="0" data-label="moxifloxacin" title="moxifloxacin" style="background: rgb(238, 237, 254); border-color: rgb(127, 119, 221); color: rgb(60, 52, 137);"><span>moxifloxacin</span><span class="bead-code">G</span></div></div><div class="bucket-label-below">Improves CSF Vd</div></div><div class="bucket-wrap"><div class="bucket-num">2</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb2"><div class="bead" draggable="true" data-ci="1" data-label="pyrimethamine" title="pyrimethamine" style="background: rgb(250, 238, 218); border-color: rgb(239, 159, 39); color: rgb(99, 56, 6);"><span>pyrimethamine</span><span class="bead-code">W</span></div></div><div class="bucket-label-below">Desired protein binding in CSF</div></div><div class="bucket-wrap"><div class="bucket-num">3</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb3"><div class="bead" draggable="true" data-ci="3" data-label="vancomycin" title="vancomycin" style="background: rgb(225, 245, 238); border-color: rgb(29, 158, 117); color: rgb(8, 80, 65);"><span>vancomycin</span><span class="bead-code">Z</span></div></div><div class="bucket-label-below">Improves beta-lactam efficacy (T&gt;MIC)</div></div><div class="bucket-wrap"><div class="bucket-num">4</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb4"><div class="bead" draggable="true" data-ci="4" data-label="micafungin" title="micafungin" style="background: rgb(251, 234, 240); border-color: rgb(212, 83, 126); color: rgb(114, 36, 62);"><span>micafungin</span><span class="bead-code">S</span></div></div><div class="bucket-label-below">Desired P-gp substrate status</div></div><div class="bucket-wrap"><div class="bucket-num">5</div><div class="bucket-rim"></div><div class="bucket-body" id="bot-bucketsb5"><div class="bead" draggable="true" data-ci="5" data-label="itraconazole" title="itraconazole" style="background: rgb(230, 241, 251); border-color: rgb(55, 138, 221); color: rgb(12, 68, 124);"><span>itraconazole</span><span class="bead-code">M</span></div></div><div class="bucket-label-below">Desired ionization at CSF pH</div></div></div>
   </div>
-  <div class="tray" id="bot-tray"><div class="bead" draggable="true" data-ci="11" data-label="liposomal ampho B" title="liposomal ampho B" style="background: rgb(245, 237, 232); border-color: rgb(176, 112, 96); color: rgb(90, 40, 16);"><span>liposomal ampho B</span><span class="bead-code">J</span></div><div class="bead" draggable="true" data-ci="6" data-label="amikacin" title="amikacin" style="background: rgb(234, 243, 222); border-color: rgb(99, 153, 34); color: rgb(39, 80, 10);"><span>amikacin</span><span class="bead-code">Y</span></div><div class="bead" draggable="true" data-ci="12" data-label="voriconazole" title="voriconazole" style="background: rgb(232, 240, 224); border-color: rgb(112, 160, 64); color: rgb(42, 80, 16);"><span>voriconazole</span><span class="bead-code">Q</span></div><div class="bead" draggable="true" data-ci="13" data-label="ceftriaxone" title="ceftriaxone" style="background: rgb(240, 232, 245); border-color: rgb(160, 96, 192); color: rgb(80, 32, 112);"><span>ceftriaxone</span><span class="bead-code">R</span></div><div class="bead" draggable="true" data-ci="1" data-label="pyrimethamine" title="pyrimethamine" style="background: rgb(250, 238, 218); border-color: rgb(239, 159, 39); color: rgb(99, 56, 6);"><span>pyrimethamine</span><span class="bead-code">W</span></div><div class="bead" draggable="true" data-ci="10" data-label="metronidazole" title="metronidazole" style="background: rgb(255, 240, 224); border-color: rgb(224, 120, 32); color: rgb(107, 51, 0);"><span>metronidazole</span><span class="bead-code">N</span></div><div class="bead" draggable="true" data-ci="0" data-label="moxifloxacin" title="moxifloxacin" style="background: rgb(238, 237, 254); border-color: rgb(127, 119, 221); color: rgb(60, 52, 137);"><span>moxifloxacin</span><span class="bead-code">G</span></div><div class="bead" draggable="true" data-ci="2" data-label="fluconazole" title="fluconazole" style="background: rgb(250, 236, 231); border-color: rgb(216, 90, 48); color: rgb(113, 43, 19);"><span>fluconazole</span><span class="bead-code">D</span></div><div class="bead" draggable="true" data-ci="5" data-label="itraconazole" title="itraconazole" style="background: rgb(230, 241, 251); border-color: rgb(55, 138, 221); color: rgb(12, 68, 124);"><span>itraconazole</span><span class="bead-code">E</span></div><div class="bead" draggable="true" data-ci="7" data-label="flucytosine" title="flucytosine" style="background: rgb(252, 240, 224); border-color: rgb(196, 136, 26); color: rgb(90, 58, 4);"><span>flucytosine</span><span class="bead-code">U</span></div><div class="bead" draggable="true" data-ci="3" data-label="vancomycin" title="vancomycin" style="background: rgb(225, 245, 238); border-color: rgb(29, 158, 117); color: rgb(8, 80, 65);"><span>vancomycin</span><span class="bead-code">Z</span></div><div class="bead" draggable="true" data-ci="8" data-label="TMP/SMX" title="TMP/SMX" style="background: rgb(240, 235, 249); border-color: rgb(155, 111, 212); color: rgb(74, 36, 128);"><span>TMP/SMX</span><span class="bead-code">A</span></div><div class="bead" draggable="true" data-ci="4" data-label="micafungin" title="micafungin" style="background: rgb(251, 234, 240); border-color: rgb(212, 83, 126); color: rgb(114, 36, 62);"><span>micafungin</span><span class="bead-code">S</span></div><div class="bead" draggable="true" data-ci="9" data-label="linezolid" title="linezolid" style="background: rgb(224, 244, 248); border-color: rgb(42, 171, 204); color: rgb(10, 90, 112);"><span>linezolid</span><span class="bead-code">C</span></div></div>
-
+  <div class="tray" id="bot-tray"><div class="bead" draggable="true" data-ci="12" data-label="ceftriaxone" title="ceftriaxone" style="background: rgb(232, 240, 224); border-color: rgb(112, 160, 64); color: rgb(42, 80, 16);"><span>ceftriaxone</span><span class="bead-code">F</span></div><div class="bead" draggable="true" data-ci="9" data-label="metronidazole" title="metronidazole" style="background: rgb(224, 244, 248); border-color: rgb(42, 171, 204); color: rgb(10, 90, 112);"><span>metronidazole</span><span class="bead-code">C</span></div><div class="bead" draggable="true" data-ci="11" data-label="voriconazole" title="voriconazole" style="background: rgb(245, 237, 232); border-color: rgb(176, 112, 96); color: rgb(90, 40, 16);"><span>voriconazole</span><span class="bead-code">P</span></div><div class="bead" draggable="true" data-ci="14" data-label="linezolid" title="linezolid" style="background: rgb(232, 245, 240); border-color: rgb(48, 160, 128); color: rgb(10, 64, 48);"><span>linezolid</span><span class="bead-code">N</span></div><div class="bead" draggable="true" data-ci="6" data-label="liposomal ampho B" title="liposomal ampho B" style="background: rgb(234, 243, 222); border-color: rgb(99, 153, 34); color: rgb(39, 80, 10);"><span>liposomal ampho B</span><span class="bead-code">J</span></div><div class="bead" draggable="true" data-ci="13" data-label="TMP/SMX" title="TMP/SMX" style="background: rgb(240, 232, 245); border-color: rgb(160, 96, 192); color: rgb(80, 32, 112);"><span>TMP/SMX</span><span class="bead-code">Y</span></div><div class="bead" draggable="true" data-ci="2" data-label="fluconazole" title="fluconazole" style="background: rgb(250, 236, 231); border-color: rgb(216, 90, 48); color: rgb(113, 43, 19);"><span>fluconazole</span><span class="bead-code">D</span></div></div>
   <div class="btn-row">
     <button class="check-btn" onclick="checkAnswers()">Check answers</button>
     <button onclick="resetPuzzle()">Reset</button>
   </div>
-  <div class="feedback" id="feedback"></div>
+  <div class="feedback" id="feedback"><span class="correct">Correct!</span></div>
 </div>
 
 <script>
 const COLORS=[
-  {bg:'#EEEDFE',border:'#7F77DD',text:'#3C3489'},
-  {bg:'#FAEEDA',border:'#EF9F27',text:'#633806'},
-  {bg:'#FAECE7',border:'#D85A30',text:'#712B13'},
-  {bg:'#E1F5EE',border:'#1D9E75',text:'#085041'},
-  {bg:'#FBEAF0',border:'#D4537E',text:'#72243E'},
-  {bg:'#E6F1FB',border:'#378ADD',text:'#0C447C'},
-  {bg:'#EAF3DE',border:'#639922',text:'#27500A'},
-  {bg:'#FCF0E0',border:'#C4881A',text:'#5A3A04'},
-  {bg:'#F0EBF9',border:'#9B6FD4',text:'#4A2480'},
-  {bg:'#E0F4F8',border:'#2AABCC',text:'#0A5A70'},
-  {bg:'#FFF0E0',border:'#E07820',text:'#6B3300'},
-  {bg:'#F5EDE8',border:'#B07060',text:'#5A2810'},
-  {bg:'#E8F0E0',border:'#70A040',text:'#2A5010'},
-  {bg:'#F0E8F5',border:'#A060C0',text:'#502070'},
+  {bg:'#EEEDFE',border:'#7F77DD',text:'#3C3489'},  // ci:0  purple
+  {bg:'#FAEEDA',border:'#EF9F27',text:'#633806'},  // ci:1  amber
+  {bg:'#FAECE7',border:'#D85A30',text:'#712B13'},  // ci:2  coral   (fluconazole RH)
+  {bg:'#E1F5EE',border:'#1D9E75',text:'#085041'},  // ci:3  teal
+  {bg:'#FBEAF0',border:'#D4537E',text:'#72243E'},  // ci:4  pink
+  {bg:'#E6F1FB',border:'#378ADD',text:'#0C447C'},  // ci:5  blue
+  {bg:'#EAF3DE',border:'#639922',text:'#27500A'},  // ci:6  (unused matched — amikacin removed)
+  {bg:'#FCF0E0',border:'#C4881A',text:'#5A3A04'},  // ci:7  orange  (hydrophilicity / TMP-SMX)
+  {bg:'#F0EBF9',border:'#9B6FD4',text:'#4A2480'},  // ci:8  violet  (high protein binding / metronidazole)
+  {bg:'#E0F4F8',border:'#2AABCC',text:'#0A5A70'},  // ci:9  sky     (unused — linezolid removed)
+  {bg:'#FFF0E0',border:'#E07820',text:'#6B3300'},  // ci:10 burnt   (intermittent dosing / liposomal ampho B)
+  {bg:'#F5EDE8',border:'#B07060',text:'#5A2810'},  // ci:11 rose    (substrate for P-gp / voriconazole)
+  {bg:'#E8F0E0',border:'#70A040',text:'#2A5010'},  // ci:12 olive   (high ionization / ceftriaxone)
+  {bg:'#F0E8F5',border:'#A060C0',text:'#502070'},  // ci:13 mauve   (TMP/SMX drug RH)
+  {bg:'#E8F5F0',border:'#30A080',text:'#0A4030'},  // ci:14 mint    (linezolid drug RH)
 ];
 
+// MATCHED PAIRS (ci = shared color, answers are SWAPPED across sides):
+// ci:0  moxifloxacin  ↔  lipophilicity
+// ci:1  pyrimethamine ↔  low protein binding
+// ci:3  vancomycin    ↔  continuous dosing
+// ci:4  micafungin    ↔  not a substrate for P-gp
+// ci:5  itraconazole  ↔  low ionization
+
+// Side 1 tray: PK beads (5 correct + 5 red herrings)
+// Side 2 tray: drug beads (5 correct + 6 red herrings)
+
+// All beads in play:
 const RAW=[
-  {ci:0,drug:'moxifloxacin',pk:'lipophilicity'},
-  {ci:1,drug:'pyrimethamine',pk:'low protein binding'},
-  {ci:2,drug:'fluconazole',pk:'low molecular weight'},
-  {ci:3,drug:'vancomycin',pk:'continuous dosing'},
-  {ci:4,drug:'micafungin',pk:'slightly acidic'},
-  {ci:5,drug:'itraconazole',pk:'low ionization'},
-  {ci:6,drug:'amikacin',pk:'not a substrate for P-gp'},
-  {ci:7,drug:'flucytosine',pk:'hydrophilicity'},
-  {ci:8,drug:'TMP/SMX',pk:'high protein binding'},
-  {ci:9,drug:'linezolid',pk:'high molecular weight'},
-  {ci:10,drug:'metronidazole',pk:'intermittent dosing'},
-  {ci:11,drug:'liposomal ampho B',pk:'slightly basic'},
-  {ci:12,drug:'voriconazole',pk:'high ionization'},
-  {ci:13,drug:'ceftriaxone',pk:'substrate for P-gp'},
+  // Matched pairs
+  {ci:0,  drug:'moxifloxacin',       pk:'lipophilicity'},
+  {ci:1,  drug:'pyrimethamine',      pk:'low protein binding'},
+  {ci:3,  drug:'vancomycin',         pk:'continuous dosing'},
+  {ci:4,  drug:'micafungin',         pk:'not a substrate for P-gp'},
+  {ci:5,  drug:'itraconazole',       pk:'low ionization'},
+  // PK red herrings only (no drug side)
+  {ci:7,  drug:null,                 pk:'hydrophilicity'},
+  {ci:8,  drug:null,                 pk:'high protein binding'},
+  {ci:10, drug:null,                 pk:'intermittent dosing'},
+  {ci:11, drug:null,                 pk:'substrate for P-gp'},
+  {ci:12, drug:null,                 pk:'high ionization'},
+  // Drug red herrings only (no pk side)
+  {ci:2,  drug:'fluconazole',        pk:null},
+  {ci:13, drug:'TMP/SMX',           pk:null},
+  {ci:9,  drug:'metronidazole',      pk:null},
+  {ci:6,  drug:'liposomal ampho B',  pk:null},
+  {ci:11, drug:'voriconazole',       pk:null},  // shares color with substrate RH on pk side
+  {ci:12, drug:'ceftriaxone',        pk:null},  // shares color with high ionization RH on pk side
 ];
 
+// NOTE: ci:11 and ci:12 appear twice (once as pk RH, once as drug RH) — same color, different label
+// We handle this by building tray arrays explicitly below
+
+// Side 1 tray PK beads
+const TOP_BEADS=[
+  {ci:0,  label:'lipophilicity',            code:'K'},
+  {ci:1,  label:'low protein binding',      code:'R'},
+  {ci:3,  label:'continuous dosing',        code:'N'},
+  {ci:4,  label:'not a substrate for P-gp', code:'T'},
+  {ci:5,  label:'low ionization',           code:'B'},
+  {ci:7,  label:'hydrophilicity',           code:'Q'},
+  {ci:8,  label:'high protein binding',     code:'H'},
+  {ci:10, label:'intermittent dosing',      code:'X'},
+  {ci:11, label:'substrate for P-gp',       code:'V'},
+  {ci:12, label:'high ionization',          code:'L'},
+];
+
+// Side 2 tray drug beads
+const BOT_BEADS=[
+  {ci:0,  label:'moxifloxacin',        code:'G'},
+  {ci:1,  label:'pyrimethamine',       code:'W'},
+  {ci:3,  label:'vancomycin',          code:'Z'},
+  {ci:4,  label:'micafungin',          code:'S'},
+  {ci:5,  label:'itraconazole',        code:'M'},
+  {ci:2,  label:'fluconazole',         code:'D'},
+  {ci:13, label:'TMP/SMX',            code:'Y'},
+  {ci:9,  label:'metronidazole',       code:'C'},
+  {ci:6,  label:'liposomal ampho B',   code:'J'},
+  {ci:11, label:'voriconazole',        code:'P'},
+  {ci:12, label:'ceftriaxone',         code:'F'},
+  {ci:14, label:'linezolid',           code:'N'},
+];
+
+// Side 1 buckets — accept PK beads (answers are the pk labels of the matched pairs)
+// Matching is done by ci + label to avoid confusion where ci is shared
 const TOP_BUCKETS=[
-  {id:'t1',num:1,label:'Adjunctive for TB meningitis',answers:[0]},
-  {id:'t2',num:2,label:'Toxoplasmosis treatment',answers:[1]},
-  {id:'t3',num:3,label:'Maintenance for cryptococcal meningitis',answers:[2]},
-  {id:'t4',num:4,label:'Poor CNS penetration for Staph',answers:[3]},
-  {id:'t5',num:5,label:'Poor CNS penetration for Candida',answers:[4]},
-  {id:'t6',num:6,label:'High P-gp substrate activity',answers:[5]},
-  {id:'t7',num:7,label:'Inactivates at low pH',answers:[6]},
+  {id:'t1',num:1,label:'Adjunctive for TB meningitis',         answerCi:0,  answerLabel:'lipophilicity'},
+  {id:'t2',num:2,label:'Toxoplasmosis treatment',              answerCi:1,  answerLabel:'low protein binding'},
+  {id:'t3',num:3,label:'Poor CNS penetration for Staph',       answerCi:3,  answerLabel:'continuous dosing'},
+  {id:'t4',num:4,label:'Poor CNS penetration for Candida',     answerCi:4,  answerLabel:'not a substrate for P-gp'},
+  {id:'t5',num:5,label:'High P-gp substrate activity',         answerCi:5,  answerLabel:'low ionization'},
 ];
 
+// Side 2 buckets — accept drug beads
 const BOT_BUCKETS=[
-  {id:'b1',num:1,label:'Improves CSF Vd',answers:[0]},
-  {id:'b2',num:2,label:'Desired protein binding in CSF',answers:[1]},
-  {id:'b3',num:3,label:'Desired molecular weight in CSF',answers:[2]},
-  {id:'b4',num:4,label:'Improves beta-lactam efficacy (T>MIC)',answers:[3]},
-  {id:'b5',num:5,label:'CSF pH in bacterial meningitis',answers:[4]},
-  {id:'b6',num:6,label:'Desired ionization at CSF pH',answers:[5]},
-  {id:'b7',num:7,label:'Desired P-gp substrate status',answers:[6]},
+  {id:'b1',num:1,label:'Improves CSF Vd',                      answerCi:0,  answerLabel:'moxifloxacin'},
+  {id:'b2',num:2,label:'Desired protein binding in CSF',       answerCi:1,  answerLabel:'pyrimethamine'},
+  {id:'b3',num:3,label:'Improves beta-lactam efficacy (T>MIC)',answerCi:3,  answerLabel:'vancomycin'},
+  {id:'b4',num:4,label:'Desired P-gp substrate status',        answerCi:4,  answerLabel:'micafungin'},
+  {id:'b5',num:5,label:'Desired ionization at CSF pH',         answerCi:5,  answerLabel:'itraconazole'},
 ];
-
-// Fixed permanent codes
-const PK_CODES=["K","R","F","N","T","B","M","Q","H","J","X","V","L","P"];
-const DRUG_CODES=["G","W","D","Z","S","E","Y","U","A","C","N","J","Q","R"];
-let CODED=[];
-function generateCodes(){
-  CODED=RAW.map((b,i)=>({ci:b.ci,drug:b.drug,pk:b.pk,drugCode:DRUG_CODES[i],pkCode:PK_CODES[i]}));
-}
 
 function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
+let _dragCi=null,_dragLabel=null,_dragCode=null,_dragSrcId=null,_isDragging=false;
+
 function makeBead(ci,label,code){
-  const c=COLORS[ci];
+  const c=COLORS[ci]||COLORS[0];
   const el=document.createElement('div');
   el.className='bead';
   el.style.background=c.bg;el.style.borderColor=c.border;el.style.color=c.text;
@@ -132,25 +170,25 @@ function makeBead(ci,label,code){
   const cd=document.createElement('span');cd.className='bead-code';cd.textContent=code;
   el.appendChild(n);el.appendChild(cd);
   el.addEventListener('dragstart',e=>{
-    e.dataTransfer.setData('ci',String(ci));
-    e.dataTransfer.setData('label',label);
-    e.dataTransfer.setData('code',code);
-    e.dataTransfer.setData('srcId',el.parentElement.id);
+    _dragCi=ci;_dragLabel=label;_dragCode=code;_dragSrcId=el.parentElement.id;
+    _isDragging=true;
+    e.dataTransfer.setData('text/plain',String(ci));
     setTimeout(()=>el.style.opacity='.3',0);
   });
-  el.addEventListener('dragend',()=>el.style.opacity='1');
+  el.addEventListener('dragend',()=>{el.style.opacity='1';_isDragging=false;});
   return el;
 }
 
 function setupDrop(el,rim,onDrop){
+  if(el._dropSetup)return;
+  el._dropSetup=true;
   el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('over');if(rim)rim.classList.add('over-rim');});
   el.addEventListener('dragleave',e=>{if(!el.contains(e.relatedTarget)){el.classList.remove('over');if(rim)rim.classList.remove('over-rim');}});
   el.addEventListener('drop',e=>{
     e.preventDefault();el.classList.remove('over');if(rim)rim.classList.remove('over-rim');
-    const ci=parseInt(e.dataTransfer.getData('ci'));
-    const label=e.dataTransfer.getData('label');
-    const code=e.dataTransfer.getData('code');
-    const srcId=e.dataTransfer.getData('srcId');
+    if(!_isDragging)return;
+    _isDragging=false;
+    const ci=_dragCi,label=_dragLabel,code=_dragCode,srcId=_dragSrcId;
     if(srcId===el.id)return;
     const src=document.getElementById(srcId);
     if(src){const ex=[...src.querySelectorAll('.bead')].find(b=>parseInt(b.dataset.ci)===ci&&b.dataset.label===label);if(ex)ex.remove();}
@@ -174,16 +212,18 @@ function buildTop(){
   const bc=document.getElementById('top-buckets');bc.innerHTML='';
   TOP_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'top-buckets')));
   const tray=document.getElementById('top-tray');tray.innerHTML='';
+  tray._dropSetup=false;
   setupDrop(tray,null,(ci,label,code,el)=>el.appendChild(makeBead(ci,label,code)));
-  shuffle(CODED.map(b=>({ci:b.ci,label:b.pk,code:b.pkCode}))).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code)));
+  shuffle(TOP_BEADS).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code)));
 }
 
 function buildBot(){
   const bc=document.getElementById('bot-buckets');bc.innerHTML='';
   BOT_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'bot-buckets')));
   const tray=document.getElementById('bot-tray');tray.innerHTML='';
+  tray._dropSetup=false;
   setupDrop(tray,null,(ci,label,code,el)=>el.appendChild(makeBead(ci,label,code)));
-  shuffle(CODED.map(b=>({ci:b.ci,label:b.drug,code:b.drugCode}))).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code)));
+  shuffle(BOT_BEADS).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code)));
 }
 
 function checkAnswers(){
@@ -191,9 +231,10 @@ function checkAnswers(){
   function checkSide(buckets,prefix){
     buckets.forEach(b=>{
       const el=document.getElementById(prefix+b.id);
-      const placed=[...el.querySelectorAll('.bead')].map(x=>parseInt(x.dataset.ci));
-      if(b.answers.some(ci=>!placed.includes(ci))) allCorrect=false;
-      placed.forEach(ci=>{if(!b.answers.includes(ci)) allCorrect=false;});
+      const placed=[...el.querySelectorAll('.bead')].map(x=>({ci:parseInt(x.dataset.ci),label:x.dataset.label}));
+      const hasCorrect=placed.some(p=>p.ci===b.answerCi&&p.label===b.answerLabel);
+      const hasWrong=placed.some(p=>!(p.ci===b.answerCi&&p.label===b.answerLabel));
+      if(!hasCorrect||hasWrong)allCorrect=false;
     });
   }
   checkSide(TOP_BUCKETS,'top-buckets');
@@ -205,11 +246,11 @@ function checkAnswers(){
 }
 
 function resetPuzzle(){
-  generateCodes();buildTop();buildBot();
+  buildTop();buildBot();
   document.getElementById('feedback').textContent='';
 }
 
-generateCodes();buildTop();buildBot();
+buildTop();buildBot();
 </script>
 
 
