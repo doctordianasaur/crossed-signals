@@ -16,6 +16,18 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#f8f8f6;color:#1a
 .bucket-body{width:100%;min-height:80px;background:#efefed;border:1.5px solid #ccc;border-top:none;border-radius:0 0 14px 14px;padding:6px 4px 10px;display:flex;flex-direction:column;gap:4px;align-items:center;transition:background .15s,border-color .15s}
 .bucket-body.over{background:#ddeeff;border-color:#378ADD}
 .bucket-rim.over-rim{background:#ddeeff;border-color:#378ADD}
+/* Side-colored buckets */
+.bucket-pink .bucket-rim{background:#fce8f0;border-color:#d4537e}
+.bucket-pink .bucket-body{background:#fce8f0;border-color:#d4537e}
+.bucket-pink .bucket-body.over{background:#f7c5d9;border-color:#a0235e}
+.bucket-pink .bucket-rim.over-rim{background:#f7c5d9;border-color:#a0235e}
+.bucket-blue .bucket-rim{background:#ddeeff;border-color:#378ADD}
+.bucket-blue .bucket-body{background:#ddeeff;border-color:#378ADD}
+.bucket-blue .bucket-body.over{background:#b8d8f8;border-color:#0C447C}
+.bucket-blue .bucket-rim.over-rim{background:#b8d8f8;border-color:#0C447C}
+/* Side-colored beads */
+.bead-pink{background:#fce8f0 !important;border-color:#d4537e !important;color:#72243E !important}
+.bead-blue{background:#ddeeff !important;border-color:#378ADD !important;color:#0C447C !important}
 .bucket-label-below{font-size:9.5px;font-weight:400;color:#666;text-align:center;margin-top:6px;line-height:1.3;padding:0 2px}
 .tray{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;background:#efefed;border-radius:10px;border:1px solid #ddd;min-height:52px;align-items:center}
 .bead{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:38px;height:44px;border-radius:10px;font-size:9.5px;font-weight:500;cursor:grab;border:2px solid transparent;transition:opacity .15s,transform .1s;flex-shrink:0;text-align:center;line-height:1.2;padding:4px 6px 3px;white-space:nowrap}
@@ -130,10 +142,10 @@ function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.fl
 let _dragCi=null,_dragLabel=null,_dragCode=null,_dragSrcId=null,_dragSide=null,_isDragging=false;
 
 function makeBead(ci,label,code,side){
-  const c=COLORS[ci]||COLORS[0];
   const el=document.createElement('div');
-  el.className='bead';
-  el.style.background=c.bg;el.style.borderColor=c.border;el.style.color=c.text;
+  // Side 1 beads → blue, Side 2 beads → pink
+  const beadClass=side==='top'?'bead bead-blue':'bead bead-pink';
+  el.className=beadClass;
   el.draggable=true;el.dataset.ci=ci;el.dataset.label=label;el.dataset.side=side;el.title=label;
   const n=document.createElement('span');n.textContent=label;
   const cd=document.createElement('span');cd.className='bead-code';cd.textContent=code;
@@ -169,8 +181,8 @@ function setupDrop(el,rim,side,onDrop){
   });
 }
 
-function makeBucketEl(b,prefix,side){
-  const wrap=document.createElement('div');wrap.className='bucket-wrap';
+function makeBucketEl(b,prefix,side,colorClass){
+  const wrap=document.createElement('div');wrap.className='bucket-wrap '+(colorClass||'');
   const numEl=document.createElement('div');numEl.className='bucket-num';numEl.textContent=b.num;
   const rim=document.createElement('div');rim.className='bucket-rim';
   const body=document.createElement('div');body.className='bucket-body';body.id=prefix+b.id;
@@ -182,7 +194,7 @@ function makeBucketEl(b,prefix,side){
 
 function buildTop(){
   const bc=document.getElementById('top-buckets');bc.innerHTML='';
-  TOP_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'top-buckets',TOP_SIDE)));
+  TOP_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'top-buckets',TOP_SIDE,'bucket-pink')));
   const tray=document.getElementById('top-tray');tray.innerHTML='';
   tray._dropSetup=false;
   setupDrop(tray,null,TOP_SIDE,(ci,label,code,beadSide,el)=>el.appendChild(makeBead(ci,label,code,beadSide)));
@@ -191,7 +203,7 @@ function buildTop(){
 
 function buildBot(){
   const bc=document.getElementById('bot-buckets');bc.innerHTML='';
-  BOT_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'bot-buckets',BOT_SIDE)));
+  BOT_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'bot-buckets',BOT_SIDE,'bucket-blue')));
   const tray=document.getElementById('bot-tray');tray.innerHTML='';
   tray._dropSetup=false;
   setupDrop(tray,null,BOT_SIDE,(ci,label,code,beadSide,el)=>el.appendChild(makeBead(ci,label,code,beadSide)));
