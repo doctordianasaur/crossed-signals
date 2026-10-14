@@ -7,34 +7,36 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:#f8f8f6;color:#1a1a1a;padding:1.5rem 1rem 3rem;}
-.puzzle-wrap{display:flex;flex-direction:column;gap:1.25rem;user-select:none;max-width:900px;margin:0 auto}
-.side-header{font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:10px}
-.buckets-row{display:flex;gap:8px;align-items:flex-start}
+.puzzle-wrap{display:flex;flex-direction:column;gap:1.5rem;max-width:980px;margin:0 auto;user-select:none}
+.brain-section{position:relative;padding:2rem 1.5rem 1.5rem;}
+.brain-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.brain-content{position:relative;z-index:1}
+.side-header{font-size:15px;font-weight:500;margin-bottom:12px}
+.buckets-and-ops{display:flex;align-items:flex-start;gap:0}
+.bucket-op{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 4px;padding-top:42px;font-size:18px;font-weight:700;color:#555;flex-shrink:0;min-width:24px}
 .bucket-wrap{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0}
 .bucket-num{font-size:13px;font-weight:500;color:#1a1a1a;text-align:center;padding-bottom:6px;line-height:1}
-.bucket-rim{width:100%;height:12px;background:#efefed;border:1.5px solid #ccc;border-bottom:none;border-radius:6px 6px 0 0;transition:background .15s,border-color .15s}
-.bucket-body{width:100%;min-height:80px;background:#efefed;border:1.5px solid #ccc;border-top:none;border-radius:0 0 14px 14px;padding:6px 4px 10px;display:flex;flex-direction:column;gap:4px;align-items:center;transition:background .15s,border-color .15s}
-.bucket-body.over{background:#ddeeff;border-color:#378ADD}
-.bucket-rim.over-rim{background:#ddeeff;border-color:#378ADD}
-/* Side-colored buckets */
-.bucket-pink .bucket-rim{background:#fce8f0;border-color:#d4537e}
-.bucket-pink .bucket-body{background:#fce8f0;border-color:#d4537e}
+.bucket-rim{width:100%;height:12px;border-bottom:none;border-radius:6px 6px 0 0;transition:background .15s,border-color .15s}
+.bucket-body{width:100%;min-height:80px;border-top:none;border-radius:0 0 14px 14px;padding:6px 4px 10px;display:flex;flex-direction:column;gap:4px;align-items:center;transition:background .15s,border-color .15s}
+.bucket-pink .bucket-rim{background:#fce8f0;border:1.5px solid #d4537e;border-bottom:none}
+.bucket-pink .bucket-body{background:#fce8f0;border:1.5px solid #d4537e;border-top:none}
 .bucket-pink .bucket-body.over{background:#f7c5d9;border-color:#a0235e}
 .bucket-pink .bucket-rim.over-rim{background:#f7c5d9;border-color:#a0235e}
-.bucket-blue .bucket-rim{background:#ddeeff;border-color:#378ADD}
-.bucket-blue .bucket-body{background:#ddeeff;border-color:#378ADD}
+.bucket-blue .bucket-rim{background:#ddeeff;border:1.5px solid #378ADD;border-bottom:none}
+.bucket-blue .bucket-body{background:#ddeeff;border:1.5px solid #378ADD;border-top:none}
 .bucket-blue .bucket-body.over{background:#b8d8f8;border-color:#0C447C}
 .bucket-blue .bucket-rim.over-rim{background:#b8d8f8;border-color:#0C447C}
-/* Side-colored beads */
-.bead-pink{background:#fce8f0 !important;border-color:#d4537e !important;color:#72243E !important}
-.bead-blue{background:#ddeeff !important;border-color:#378ADD !important;color:#0C447C !important}
-.bucket-label-below{font-size:9.5px;font-weight:400;color:#666;text-align:center;margin-top:6px;line-height:1.3;padding:0 2px}
-.tray{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;background:#efefed;border-radius:10px;border:1px solid #ddd;min-height:52px;align-items:center}
-.bead{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:38px;height:44px;border-radius:10px;font-size:9.5px;font-weight:500;cursor:grab;border:2px solid transparent;transition:opacity .15s,transform .1s;flex-shrink:0;text-align:center;line-height:1.2;padding:4px 6px 3px;white-space:nowrap}
+.eq-result{display:flex;align-items:center;padding-top:42px;font-size:16px;font-weight:700;color:#1a1a1a;white-space:nowrap;padding-left:6px;flex-shrink:0}
+.eq-answer-num{font-size:20px;font-weight:800;margin-left:4px}
+.bucket-label-below{font-size:9px;font-weight:400;color:#555;text-align:center;margin-top:5px;line-height:1.3;padding:0 2px}
+.tray{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px;background:rgba(255,255,255,0.6);border-radius:10px;border:1px solid #ddd;min-height:52px;align-items:center;margin-top:10px}
+.bead{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:42px;height:46px;border-radius:10px;font-size:9px;font-weight:500;cursor:grab;border:2px solid transparent;transition:opacity .15s,transform .1s;flex-shrink:0;text-align:center;line-height:1.2;padding:4px 6px 3px;white-space:nowrap}
 .bead:active{cursor:grabbing;transform:scale(1.08)}
-.bead-code{font-size:9px;opacity:.65;margin-top:2px;font-weight:400}
+.bead-code{font-size:11px;font-weight:800;margin-top:2px;letter-spacing:.02em}
+.bead-pink{background:#fce8f0;border-color:#d4537e;color:#72243E}
+.bead-blue{background:#ddeeff;border-color:#378ADD;color:#0C447C}
 .divider{height:1px;background:#ddd}
-.btn-row{display:flex;gap:8px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 button{font-size:13px;padding:6px 14px;border-radius:8px;border:1px solid #bbb;background:#fff;color:#1a1a1a;cursor:pointer}
 button:hover{background:#f0f0ee}
 .check-btn{background:#ddeeff;color:#0C447C;border-color:#85B7EB}
@@ -42,111 +44,221 @@ button:hover{background:#f0f0ee}
 .feedback{font-size:14px;font-weight:500}
 .correct{color:#2a7a2a}
 .wrong{color:#c0392b}
+.calc-wrap{background:#fff;border:1px solid #ddd;border-radius:12px;padding:14px 16px;max-width:340px}
+.calc-title{font-size:11px;font-weight:500;color:#888;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px}
+.calc-tabs{display:flex;gap:6px;margin-bottom:10px}
+.calc-tab{font-size:11px;padding:4px 10px;border-radius:6px;border:1px solid #ddd;background:#f8f8f6;cursor:pointer;color:#555}
+.calc-tab.active-pink{background:#fce8f0;border-color:#d4537e;color:#72243E;font-weight:600}
+.calc-tab.active-blue{background:#ddeeff;border-color:#378ADD;color:#0C447C;font-weight:600}
+.calc-eq{display:flex;gap:4px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.calc-input{width:52px;height:30px;border-radius:6px;border:1px solid #ccc;text-align:center;font-size:13px;font-weight:700;color:#1a1a1a;background:#f8f8f6}
+.calc-input:focus{outline:none;border-color:#378ADD}
+.calc-op{font-size:15px;font-weight:600;color:#555}
+.calc-result-row{display:flex;align-items:center;gap:8px;margin-top:6px}
+.calc-result{font-size:22px;font-weight:800;color:#1a1a1a;min-width:70px}
+.calc-result.match-pink{color:#d4537e}
+.calc-result.match-blue{color:#378ADD}
+.calc-hint{font-size:11px;color:#888}
 </style>
 </head>
 <body>
 <div class="puzzle-wrap">
-  <div>
-    <div class="side-header">Side 1</div>
-    <div class="buckets-row" id="top-buckets"></div>
+
+  <!-- SIDE 1: pink buckets, blue beads -->
+  <div class="brain-section" id="side1-section">
+    <svg class="brain-bg" viewBox="0 0 900 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="
+        M80,260
+        C40,260 20,230 20,200
+        C20,175 35,160 50,150
+        C35,135 30,115 40,95
+        C50,70 75,60 100,65
+        C105,45 120,30 145,28
+        C165,26 185,38 195,55
+        C210,40 230,32 255,35
+        C275,37 292,50 300,68
+        C315,55 335,50 360,55
+        C385,60 400,78 405,98
+        C420,85 445,80 465,90
+        C490,100 500,122 498,145
+        C515,138 535,140 548,155
+        C562,170 562,192 550,210
+        C568,218 578,235 572,255
+        C565,272 548,280 530,278
+        C515,295 495,302 472,298
+        C452,294 438,280 432,265
+        C415,278 395,282 375,276
+        C358,288 335,292 315,284
+        C298,295 275,298 255,290
+        C238,300 215,302 198,292
+        C180,302 158,300 142,288
+        C122,295 100,290 88,276
+        Z
+      " fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.7"/>
+    </svg>
+    <div class="brain-content">
+      <div class="side-header" style="color:#72243E">Side 1</div>
+      <div class="buckets-and-ops" id="top-buckets-row"></div>
+      <div class="tray" id="top-tray"></div>
+    </div>
   </div>
-  <div class="tray" id="top-tray"></div>
+
   <div class="divider"></div>
-  <div>
-    <div class="side-header">Side 2</div>
-    <div class="buckets-row" id="bot-buckets"></div>
+
+  <!-- SIDE 2: blue buckets, pink beads -->
+  <div class="brain-section" id="side2-section">
+    <svg class="brain-bg" viewBox="0 0 900 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="
+        M80,260
+        C40,260 20,230 20,200
+        C20,175 35,160 50,150
+        C35,135 30,115 40,95
+        C50,70 75,60 100,65
+        C105,45 120,30 145,28
+        C165,26 185,38 195,55
+        C210,40 230,32 255,35
+        C275,37 292,50 300,68
+        C315,55 335,50 360,55
+        C385,60 400,78 405,98
+        C420,85 445,80 465,90
+        C490,100 500,122 498,145
+        C515,138 535,140 548,155
+        C562,170 562,192 550,210
+        C568,218 578,235 572,255
+        C565,272 548,280 530,278
+        C515,295 495,302 472,298
+        C452,294 438,280 432,265
+        C415,278 395,282 375,276
+        C358,288 335,292 315,284
+        C298,295 275,298 255,290
+        C238,300 215,302 198,292
+        C180,302 158,300 142,288
+        C122,295 100,290 88,276
+        Z
+      " fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.7"/>
+    </svg>
+    <div class="brain-content">
+      <div class="side-header" style="color:#0C447C">Side 2</div>
+      <div class="buckets-and-ops" id="bot-buckets-row"></div>
+      <div class="tray" id="bot-tray"></div>
+    </div>
   </div>
-  <div class="tray" id="bot-tray"></div>
+
   <div class="btn-row">
     <button class="check-btn" onclick="checkAnswers()">Check answers</button>
     <button onclick="resetPuzzle()">Reset</button>
   </div>
   <div class="feedback" id="feedback"></div>
-</div>
 
+  <!-- CALCULATOR -->
+  <div class="calc-wrap">
+    <div class="calc-title">Equation solver</div>
+    <div class="calc-tabs">
+      <div class="calc-tab active-pink" id="tab1" onclick="setCalcSide(1)">Side 1 = 3831</div>
+      <div class="calc-tab" id="tab2" onclick="setCalcSide(2)">Side 2 = 4122</div>
+    </div>
+    <div class="calc-eq">
+      <input class="calc-input" id="ca" type="number" placeholder="□" oninput="calcUpdate()">
+      <span class="calc-op">×</span>
+      <input class="calc-input" id="cb" type="number" placeholder="□" oninput="calcUpdate()">
+      <span class="calc-op">+</span>
+      <input class="calc-input" id="cc" type="number" placeholder="□" oninput="calcUpdate()">
+      <span class="calc-op">×</span>
+      <input class="calc-input" id="cd" type="number" placeholder="□" oninput="calcUpdate()">
+    </div>
+    <div class="calc-result-row">
+      <span style="font-size:15px;font-weight:600;color:#555">=</span>
+      <span class="calc-result" id="calc-result">—</span>
+      <span class="calc-hint" id="calc-hint">enter four numbers</span>
+    </div>
+  </div>
+
+</div>
 <script>
 const COLORS=[
-  {bg:'#EEEDFE',border:'#7F77DD',text:'#3C3489'},  // ci:0
-  {bg:'#FAEEDA',border:'#EF9F27',text:'#633806'},  // ci:1
-  {bg:'#FAECE7',border:'#D85A30',text:'#712B13'},  // ci:2
-  {bg:'#E1F5EE',border:'#1D9E75',text:'#085041'},  // ci:3
-  {bg:'#FBEAF0',border:'#D4537E',text:'#72243E'},  // ci:4
-  {bg:'#E6F1FB',border:'#378ADD',text:'#0C447C'},  // ci:5
-  {bg:'#EAF3DE',border:'#639922',text:'#27500A'},  // ci:6
-  {bg:'#FCF0E0',border:'#C4881A',text:'#5A3A04'},  // ci:7
-  {bg:'#F0EBF9',border:'#9B6FD4',text:'#4A2480'},  // ci:8
-  {bg:'#E0F4F8',border:'#2AABCC',text:'#0A5A70'},  // ci:9
-  {bg:'#FFF0E0',border:'#E07820',text:'#6B3300'},  // ci:10
-  {bg:'#F5EDE8',border:'#B07060',text:'#5A2810'},  // ci:11
-  {bg:'#E8F0E0',border:'#70A040',text:'#2A5010'},  // ci:12
-  {bg:'#F0E8F5',border:'#A060C0',text:'#502070'},  // ci:13
+  {bg:'#EEEDFE',border:'#7F77DD',text:'#3C3489'},
+  {bg:'#FAEEDA',border:'#EF9F27',text:'#633806'},
+  {bg:'#FAECE7',border:'#D85A30',text:'#712B13'},
+  {bg:'#E1F5EE',border:'#1D9E75',text:'#085041'},
+  {bg:'#FBEAF0',border:'#D4537E',text:'#72243E'},
+  {bg:'#E6F1FB',border:'#378ADD',text:'#0C447C'},
+  {bg:'#EAF3DE',border:'#639922',text:'#27500A'},
+  {bg:'#FCF0E0',border:'#C4881A',text:'#5A3A04'},
+  {bg:'#F0EBF9',border:'#9B6FD4',text:'#4A2480'},
+  {bg:'#E0F4F8',border:'#2AABCC',text:'#0A5A70'},
+  {bg:'#FFF0E0',border:'#E07820',text:'#6B3300'},
+  {bg:'#F5EDE8',border:'#B07060',text:'#5A2810'},
+  {bg:'#E8F0E0',border:'#70A040',text:'#2A5010'},
+  {bg:'#F0E8F5',border:'#A060C0',text:'#502070'},
+  {bg:'#E8F8F0',border:'#28A060',text:'#0A4020'},
+  {bg:'#FEF0E8',border:'#D06828',text:'#6A2800'},
+  {bg:'#F8F0E0',border:'#B09030',text:'#504000'},
 ];
 
-// MATCHED PAIRS (answers swapped across sides):
-// ci:1  pyrimethamine      / low protein binding
-// ci:3  continuous dosing  (vancomycin removed from S2)
-// ci:4  micafungin         / low molecular weight
-// ci:5  itraconazole       / low ionization
-// ci:0  levofloxacin       (lipophilicity removed from S1)
-
-// Side 1 tray: 4 correct PK beads + 4 red herrings = 8 total
-// Codes unique per side, digits 0-9
 const TOP_BEADS=[
-  {ci:1,  label:'low protein binding',      code:'3'},  // correct → bucket 1
-  {ci:3,  label:'continuous dosing',        code:'7'},  // correct → bucket 2
-  {ci:4,  label:'low molecular weight',     code:'1'},  // correct → bucket 3
-  {ci:5,  label:'low ionization',           code:'5'},  // correct → bucket 4
-  // red herrings
-  {ci:8,  label:'high protein binding',     code:'8'},
-  {ci:10, label:'intermittent dosing',      code:'2'},
-  {ci:12, label:'high ionization',          code:'6'},
-  {ci:9,  label:'higher molecular weight',    code:'4'},
+  {ci:1, label:'low protein binding',     code:'43'},
+  {ci:3, label:'continuous dosing',       code:'67'},
+  {ci:4, label:'low molecular weight',    code:'25'},
+  {ci:5, label:'low ionization',          code:'38'},
+  {ci:8, label:'high protein binding',    code:'11'},
+  {ci:10,label:'intermittent dosing',     code:'22'},
+  {ci:12,label:'high ionization',         code:'51'},
+  {ci:9, label:'higher molecular weight', code:'64'},
 ];
 
-// Side 2 tray: 4 correct drug beads + 6 red herrings = 10 total
 const BOT_BEADS=[
-  {ci:0,  label:'levofloxacin',             code:'9'},  // correct → bucket 1
-  {ci:1,  label:'pyrimethamine',            code:'2'},  // correct → bucket 2
-  {ci:4,  label:'micafungin',               code:'7'},  // correct → bucket 3
-  {ci:5,  label:'itraconazole',             code:'4'},  // correct → bucket 4
-  // red herrings
-  {ci:2,  label:'fluconazole',              code:'5'},
-  {ci:13, label:'TMP/SMX',                 code:'6'},
-  {ci:9,  label:'metronidazole',            code:'3'},
-  {ci:6,  label:'liposomal ampho B',        code:'8'},
-  {ci:11, label:'voriconazole',             code:'1'},
-  {ci:12, label:'ceftriaxone',              code:'5'},
+  {ci:15,label:'ganciclovir',             code:'29'},
+  {ci:1, label:'pyrimethamine',           code:'54'},
+  {ci:4, label:'micafungin',              code:'36'},
+  {ci:11,label:'voriconazole',            code:'71'},
+  {ci:5, label:'itraconazole',            code:'12'},
+  {ci:2, label:'fluconazole',             code:'21'},
+  {ci:13,label:'TMP/SMX',               code:'33'},
+  {ci:6, label:'liposomal ampho B',       code:'61'},
+  {ci:16,label:'acyclovir',              code:'83'},
+  {ci:12,label:'ceftriaxone',             code:'13'},
 ];
 
-// Side 1 buckets — accept PK beads only
 const TOP_BUCKETS=[
-  {id:'t1',num:1,label:'Adjunctive for TB meningitis',        answerCi:1, answerLabel:'low protein binding'},
-  {id:'t2',num:2,label:'CNS Toxoplasmosis treatment',             answerCi:3, answerLabel:'continuous dosing'},
-  {id:'t3',num:3,label:'Lowest CNS penetration for Candida',    answerCi:4, answerLabel:'low molecular weight'},
-  {id:'t4',num:4,label:'Highest P-gp efflux',        answerCi:5, answerLabel:'low ionization'},
+  {id:'t1',num:1,label:'Preferred treatment for HHV-6 encephalitis', answerCi:1, answerLabel:'low protein binding'},
+  {id:'t2',num:2,label:'Preferred treatment for Toxoplasmosis',       answerCi:3, answerLabel:'continuous dosing'},
+  {id:'t3',num:3,label:'Lowest CNS penetration for Candida',          answerCi:4, answerLabel:'low molecular weight'},
+  {id:'t4',num:4,label:'Target trough 2-5 mcg/mL',                   answerCi:5, answerLabel:'low ionization'},
 ];
 
-// Side 2 buckets — accept drug beads only
 const BOT_BUCKETS=[
-  {id:'b1',num:1,label:'Desired protein binding in CNS',       answerCi:0, answerLabel:'levofloxacin'},
+  {id:'b1',num:1,label:'Desired protein binding in CNS',              answerCi:15,answerLabel:'ganciclovir'},
   {id:'b2',num:2,label:'Improves beta-lactam efficacy (T>MIC) in CNS',answerCi:1, answerLabel:'pyrimethamine'},
-  {id:'b3',num:3,label:'Desired molecular weight in CNS',      answerCi:4, answerLabel:'micafungin'},
-  {id:'b4',num:4,label:'Desired ionization at CNS pH',         answerCi:5, answerLabel:'itraconazole'},
+  {id:'b3',num:3,label:'Desired molecular weight in CNS',             answerCi:4, answerLabel:'micafungin'},
+  {id:'b4',num:4,label:'Desired ionization at CNS pH',                answerCi:11,answerLabel:'voriconazole'},
 ];
 
-const TOP_SIDE='top';
-const BOT_SIDE='bot';
+const OPS=['×','+','×'];
+const TOP_SIDE='top', BOT_SIDE='bot';
+let _dragCi=null,_dragLabel=null,_dragCode=null,_dragSrcId=null,_dragSide=null,_isDragging=false;
 
 function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
-let _dragCi=null,_dragLabel=null,_dragCode=null,_dragSrcId=null,_dragSide=null,_isDragging=false;
+function updateEquationBoxes(){
+  TOP_BUCKETS.forEach((b,i)=>{
+    const body=document.getElementById('top-buckets'+b.id);
+    const bead=body?body.querySelector('.bead'):null;
+    const box=document.getElementById('eq1-'+i);
+    if(box)box.textContent=bead?bead.dataset.code:'?';
+  });
+  BOT_BUCKETS.forEach((b,i)=>{
+    const body=document.getElementById('bot-buckets'+b.id);
+    const bead=body?body.querySelector('.bead'):null;
+    const box=document.getElementById('eq2-'+i);
+    if(box)box.textContent=bead?bead.dataset.code:'?';
+  });
+}
 
 function makeBead(ci,label,code,side){
   const el=document.createElement('div');
-  // Side 1 beads → blue, Side 2 beads → pink
-  const beadClass=side==='top'?'bead bead-blue':'bead bead-pink';
-  el.className=beadClass;
-  el.draggable=true;el.dataset.ci=ci;el.dataset.label=label;el.dataset.side=side;el.title=label;
+  el.className='bead '+(side===TOP_SIDE?'bead-blue':'bead-pink');
+  el.draggable=true;
+  el.dataset.ci=ci;el.dataset.label=label;el.dataset.code=code;el.dataset.side=side;el.title=label;
   const n=document.createElement('span');n.textContent=label;
   const cd=document.createElement('span');cd.className='bead-code';cd.textContent=code;
   el.appendChild(n);el.appendChild(cd);
@@ -156,59 +268,69 @@ function makeBead(ci,label,code,side){
     e.dataTransfer.setData('text/plain',String(ci));
     setTimeout(()=>el.style.opacity='.3',0);
   });
-  el.addEventListener('dragend',()=>{el.style.opacity='1';_isDragging=false;});
+  el.addEventListener('dragend',()=>{el.style.opacity='1';_isDragging=false;updateEquationBoxes();});
   return el;
 }
 
 function setupDrop(el,rim,side,onDrop){
-  if(el._dropSetup)return;
-  el._dropSetup=true;
-  el.addEventListener('dragover',e=>{
-    if(!_isDragging||_dragSide!==side)return;
-    e.preventDefault();el.classList.add('over');if(rim)rim.classList.add('over-rim');
-  });
+  if(el._dropSetup)return;el._dropSetup=true;
+  el.addEventListener('dragover',e=>{if(!_isDragging||_dragSide!==side)return;e.preventDefault();el.classList.add('over');if(rim)rim.classList.add('over-rim');});
   el.addEventListener('dragleave',e=>{if(!el.contains(e.relatedTarget)){el.classList.remove('over');if(rim)rim.classList.remove('over-rim');}});
   el.addEventListener('drop',e=>{
     e.preventDefault();el.classList.remove('over');if(rim)rim.classList.remove('over-rim');
     if(!_isDragging||_dragSide!==side)return;
     _isDragging=false;
-    const ci=_dragCi,label=_dragLabel,code=_dragCode,srcId=_dragSrcId,beadSide=_dragSide;
+    const ci=_dragCi,label=_dragLabel,code=_dragCode,srcId=_dragSrcId,bs=_dragSide;
     if(srcId===el.id)return;
     const src=document.getElementById(srcId);
     if(src){const ex=[...src.querySelectorAll('.bead')].find(b=>parseInt(b.dataset.ci)===ci&&b.dataset.label===label);if(ex)ex.remove();}
-    onDrop(ci,label,code,beadSide,el);
+    onDrop(ci,label,code,bs,el);
+    updateEquationBoxes();
     document.getElementById('feedback').textContent='';
   });
 }
 
-function makeBucketEl(b,prefix,side,colorClass){
+function makeBucketEl(b,prefix,side,colorClass,eqBoxId){
   const wrap=document.createElement('div');wrap.className='bucket-wrap '+(colorClass||'');
   const numEl=document.createElement('div');numEl.className='bucket-num';numEl.textContent=b.num;
+
+  // Equation box inside num area
+  const eqBox=document.createElement('span');
+  eqBox.id=eqBoxId;
+  eqBox.style.cssText='display:inline-block;margin-left:4px;font-size:11px;font-weight:700;min-width:28px;background:rgba(255,255,255,0.7);border-radius:4px;padding:1px 3px;color:inherit';
+  eqBox.textContent='?';
+  numEl.appendChild(eqBox);
+
   const rim=document.createElement('div');rim.className='bucket-rim';
   const body=document.createElement('div');body.className='bucket-body';body.id=prefix+b.id;
-  setupDrop(body,rim,side,(ci,label,code,beadSide,el)=>el.appendChild(makeBead(ci,label,code,beadSide)));
+  setupDrop(body,rim,side,(ci,label,code,bs,el)=>el.appendChild(makeBead(ci,label,code,bs)));
   const lbl=document.createElement('div');lbl.className='bucket-label-below';lbl.textContent=b.label;
   wrap.appendChild(numEl);wrap.appendChild(rim);wrap.appendChild(body);wrap.appendChild(lbl);
   return wrap;
 }
 
-function buildTop(){
-  const bc=document.getElementById('top-buckets');bc.innerHTML='';
-  TOP_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'top-buckets',TOP_SIDE,'bucket-pink')));
-  const tray=document.getElementById('top-tray');tray.innerHTML='';
-  tray._dropSetup=false;
-  setupDrop(tray,null,TOP_SIDE,(ci,label,code,beadSide,el)=>el.appendChild(makeBead(ci,label,code,beadSide)));
-  shuffle(TOP_BEADS).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code,TOP_SIDE)));
+function buildSide(buckets,beads,rowId,trayId,prefix,side,colorClass,eqPrefix,answerNum){
+  const row=document.getElementById(rowId);row.innerHTML='';
+  buckets.forEach((b,i)=>{
+    if(i>0){
+      const op=document.createElement('div');op.className='bucket-op';
+      op.textContent=OPS[i-1];
+      row.appendChild(op);
+    }
+    row.appendChild(makeBucketEl(b,prefix,side,colorClass,eqPrefix+i));
+  });
+  // equals + answer
+  const res=document.createElement('div');res.className='eq-result';
+  res.innerHTML='= <span class="eq-answer-num">'+answerNum+'</span>';
+  row.appendChild(res);
+
+  const tray=document.getElementById(trayId);tray.innerHTML='';tray._dropSetup=false;
+  setupDrop(tray,null,side,(ci,label,code,bs,el)=>el.appendChild(makeBead(ci,label,code,bs)));
+  shuffle(beads).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code,side)));
 }
 
-function buildBot(){
-  const bc=document.getElementById('bot-buckets');bc.innerHTML='';
-  BOT_BUCKETS.forEach(b=>bc.appendChild(makeBucketEl(b,'bot-buckets',BOT_SIDE,'bucket-blue')));
-  const tray=document.getElementById('bot-tray');tray.innerHTML='';
-  tray._dropSetup=false;
-  setupDrop(tray,null,BOT_SIDE,(ci,label,code,beadSide,el)=>el.appendChild(makeBead(ci,label,code,beadSide)));
-  shuffle(BOT_BEADS).forEach(b=>tray.appendChild(makeBead(b.ci,b.label,b.code,BOT_SIDE)));
-}
+function buildTop(){buildSide(TOP_BUCKETS,TOP_BEADS,'top-buckets-row','top-tray','top-buckets',TOP_SIDE,'bucket-pink','eq1-',3831);}
+function buildBot(){buildSide(BOT_BUCKETS,BOT_BEADS,'bot-buckets-row','bot-tray','bot-buckets',BOT_SIDE,'bucket-blue','eq2-',4122);}
 
 function checkAnswers(){
   let allCorrect=true;
@@ -221,20 +343,38 @@ function checkAnswers(){
       if(!hasCorrect||hasWrong)allCorrect=false;
     });
   }
-  checkSide(TOP_BUCKETS,'top-buckets');
-  checkSide(BOT_BUCKETS,'bot-buckets');
+  checkSide(TOP_BUCKETS,'top-buckets');checkSide(BOT_BUCKETS,'bot-buckets');
   const fb=document.getElementById('feedback');
-  fb.innerHTML=allCorrect
-    ?'<span class="correct">Correct!</span>'
-    :'<span class="wrong">Try again!</span>';
+  fb.innerHTML=allCorrect?'<span class="correct">Correct!</span>':'<span class="wrong">Try again!</span>';
 }
 
-function resetPuzzle(){
-  buildTop();buildBot();
-  document.getElementById('feedback').textContent='';
+function resetPuzzle(){buildTop();buildBot();updateEquationBoxes();document.getElementById('feedback').textContent='';}
+
+let calcSide=1;
+function setCalcSide(s){
+  calcSide=s;
+  document.getElementById('tab1').className='calc-tab'+(s===1?' active-pink':'');
+  document.getElementById('tab2').className='calc-tab'+(s===2?' active-blue':'');
+  ['ca','cb','cc','cd'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('calc-result').textContent='—';
+  document.getElementById('calc-result').className='calc-result';
+  document.getElementById('calc-hint').textContent='enter four numbers';
+}
+function calcUpdate(){
+  const a=parseFloat(document.getElementById('ca').value);
+  const b=parseFloat(document.getElementById('cb').value);
+  const c=parseFloat(document.getElementById('cc').value);
+  const d=parseFloat(document.getElementById('cd').value);
+  const rEl=document.getElementById('calc-result'),hEl=document.getElementById('calc-hint');
+  if([a,b,c,d].some(isNaN)){rEl.textContent='—';rEl.className='calc-result';hEl.textContent='enter four numbers';return;}
+  const result=a*b+c*d;
+  rEl.textContent=result.toLocaleString();
+  const target=calcSide===1?3831:4122;
+  if(result===target){rEl.className='calc-result '+(calcSide===1?'match-pink':'match-blue');hEl.textContent='✓ matches the target!';}
+  else{rEl.className='calc-result';hEl.textContent='target: '+target.toLocaleString()+' · diff: '+(result-target);}
 }
 
-buildTop();buildBot();
+buildTop();buildBot();updateEquationBoxes();
 </script>
 </body>
 </html>
