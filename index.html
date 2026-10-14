@@ -8,8 +8,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:#f8f8f6;color:#1a1a1a;padding:1.5rem 1rem 3rem;}
 .puzzle-wrap{display:flex;flex-direction:column;gap:1.5rem;max-width:980px;margin:0 auto;user-select:none}
-.brain-section{position:relative;padding:2rem 1.5rem 1.5rem;}
-.brain-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.brain-section{position:relative;padding:2rem 1.5rem 1.5rem;border-radius:28px;overflow:visible}
+.brain-bg{position:absolute;inset:-18px;width:calc(100% + 36px);height:calc(100% + 36px);pointer-events:none;overflow:visible}
 .brain-content{position:relative;z-index:1}
 .side-header{font-size:15px;font-weight:500;margin-bottom:12px}
 .buckets-and-ops{display:flex;align-items:flex-start;gap:0}
@@ -67,7 +67,17 @@ button:hover{background:#f0f0ee}
   <!-- SIDE 1: pink buckets, blue beads -->
   <div class="brain-section" id="side1-section">
     <svg class="brain-bg" viewBox="0 0 900 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50,280 C10,275 5,240 10,210 C5,185 15,165 35,152 C18,130 18,105 32,82 C48,58 75,52 102,62 C110,42 128,26 152,22 C172,18 192,30 204,50 C220,34 244,26 268,30 C292,34 308,52 312,72 C328,56 352,50 376,56 C402,62 418,82 420,106 C436,90 460,86 482,98 C506,110 514,136 508,162 C526,154 548,158 562,174 C578,192 576,218 560,234 C576,244 584,264 576,282 C566,298 546,304 526,298 C510,316 488,320 466,312 C446,308 432,292 428,274 C410,288 388,294 366,286 C348,298 322,302 300,292 C280,304 254,306 234,296 C214,308 188,308 170,296 C150,306 124,304 108,290 C88,298 64,295 50,280 Z" fill="#fce8f0" stroke="#d4537e" stroke-width="2.5" opacity="0.75"/>
+      <rect x="0" y="0" width="100%" height="100%" rx="32" ry="32" fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.85"/>
+      <!-- brain hemisphere bumps top -->
+      <ellipse cx="28%" cy="4" rx="14%" ry="22" fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="50%" cy="2" rx="13%" ry="20" fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="72%" cy="4" rx="14%" ry="22" fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.85"/>
+      <!-- brain fissure line top center -->
+      <line x1="50%" y1="2%" x2="50%" y2="18%" stroke="#d4537e" stroke-width="1.5" opacity="0.4"/>
+      <!-- bottom bumps -->
+      <ellipse cx="28%" cy="100%" rx="13%" ry="20" fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="50%" cy="100%" rx="12%" ry="18" fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="72%" cy="100%" rx="13%" ry="20" fill="#fce8f0" stroke="#d4537e" stroke-width="2" opacity="0.85"/>
     </svg>
     <div class="brain-content">
       <div class="side-header" style="color:#72243E">Side 1</div>
@@ -81,7 +91,14 @@ button:hover{background:#f0f0ee}
   <!-- SIDE 2: blue buckets, pink beads -->
   <div class="brain-section" id="side2-section">
     <svg class="brain-bg" viewBox="0 0 900 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50,280 C10,275 5,240 10,210 C5,185 15,165 35,152 C18,130 18,105 32,82 C48,58 75,52 102,62 C110,42 128,26 152,22 C172,18 192,30 204,50 C220,34 244,26 268,30 C292,34 308,52 312,72 C328,56 352,50 376,56 C402,62 418,82 420,106 C436,90 460,86 482,98 C506,110 514,136 508,162 C526,154 548,158 562,174 C578,192 576,218 560,234 C576,244 584,264 576,282 C566,298 546,304 526,298 C510,316 488,320 466,312 C446,308 432,292 428,274 C410,288 388,294 366,286 C348,298 322,302 300,292 C280,304 254,306 234,296 C214,308 188,308 170,296 C150,306 124,304 108,290 C88,298 64,295 50,280 Z" fill="#ddeeff" stroke="#378ADD" stroke-width="2.5" opacity="0.75"/>
+      <rect x="0" y="0" width="100%" height="100%" rx="32" ry="32" fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="28%" cy="4" rx="14%" ry="22" fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="50%" cy="2" rx="13%" ry="20" fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="72%" cy="4" rx="14%" ry="22" fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.85"/>
+      <line x1="50%" y1="2%" x2="50%" y2="18%" stroke="#378ADD" stroke-width="1.5" opacity="0.4"/>
+      <ellipse cx="28%" cy="100%" rx="13%" ry="20" fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="50%" cy="100%" rx="12%" ry="18" fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.85"/>
+      <ellipse cx="72%" cy="100%" rx="13%" ry="20" fill="#ddeeff" stroke="#378ADD" stroke-width="2" opacity="0.85"/>
     </svg>
     <div class="brain-content">
       <div class="side-header" style="color:#0C447C">Side 2</div>
@@ -169,7 +186,7 @@ const TOP_BUCKETS=[
   {id:'t1',num:1,label:'Preferred treatment for HHV-6 encephalitis', answerCi:1, answerLabel:'low protein binding'},
   {id:'t2',num:2,label:'Preferred treatment for Toxoplasmosis',       answerCi:3, answerLabel:'continuous dosing'},
   {id:'t3',num:3,label:'Lowest CNS penetration for Candida',          answerCi:4, answerLabel:'low molecular weight'},
-  {id:'t4',num:4,label:'Target trough 2-5 mcg/mL',                   answerCi:5, answerLabel:'low ionization'},
+  {id:'t4',num:4,label:'Target CNS trough 2-5 mcg/mL',                   answerCi:5, answerLabel:'low ionization'},
 ];
 
 const BOT_BUCKETS=[
